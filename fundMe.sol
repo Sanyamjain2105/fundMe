@@ -53,7 +53,7 @@ contract fundMe{
         //msg.sender of of type address but we need it to be of type apyable address to transfer fund so we typcast it
         //address(this).balance  returns current balance of the contract
         //payable(msg.sender).transfer(address(this).balance);
-        payable(msg.sender).transfer(totalFund);
+        // payable(msg.sender).transfer(totalFund);
         // with tranfer we can provide max gas to be used and if tranfer fails operation is reverted back
 
         //2. send:
