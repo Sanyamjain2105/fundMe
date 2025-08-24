@@ -5,10 +5,12 @@ pragma solidity ^0.8.18;
 import {AggregatorV3Interface} from "@chainlink/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol";
 import {fundCoverter} from "./fundCoverter.sol";
 
+error notOwner();
+
 contract fundMe{
     using fundCoverter for uint256;
     // attaches function of libraru to uint256 and call be called directly
-    uint256 public minUsd=5;
+    uint256 public constant minUsd=5;
 
     //using chainlink oracle interface 
     AggregatorV3Interface internal dataFeed;
@@ -16,7 +18,7 @@ contract fundMe{
     // for our example we wanted eth to usd conversion to we used this address we may also change to other
     // address for other conversion rate also
 
-    address public owner;
+    address public immutable owner;
     constructor() {
         dataFeed = AggregatorV3Interface(
             0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419
@@ -70,7 +72,18 @@ contract fundMe{
     }
 
     modifier onlyOwner(){
-        require(msg.sender==owner, "Not the owner");
+        // require(msg.sender==owner, "Not the owner");
+
+        if(msg.sender != owner){
+            revert notOwner();
+        }
         _;
+    }
+    receive() external payable { 
+        fund();
+    }
+
+    fallback() external payable { 
+        fund();
     }
 }

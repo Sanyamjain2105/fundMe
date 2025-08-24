@@ -11,6 +11,15 @@
 				"type": "constructor"
 			},
 			{
+				"inputs": [],
+				"name": "notOwner",
+				"type": "error"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "fallback"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -87,6 +96,10 @@
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
 			}
 		],
 		"devdoc": {
@@ -133,11 +146,11 @@
 			]
 		},
 		"fundMe.sol": {
-			"keccak256": "0xb785d91e518429f0f2785e40a81eacc3569d435cb013c020425cd3dc6fb01ca8",
+			"keccak256": "0x2a13e11aebaf95f0c9e8218036d6437174b2d43613426bb73b252a8f883903d3",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://b4da3354d11c3e080cd01668155438797c57861472e57d2d601f0e2fdc99255c",
-				"dweb:/ipfs/QmXcZS66AdnzkH58iJDbKPFXagRKwxRddmtP1UDssKUwT3"
+				"bzz-raw://6f44588a7c15d1e57b4cc0cde1de22f79c161503a4203a4550181345d384cfd1",
+				"dweb:/ipfs/QmQ9gM3b2BYkeQH4jTq8dYR98Fwq2D6SkocNCUfRjd5UWU"
 			]
 		}
 	},
